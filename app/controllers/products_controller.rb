@@ -29,28 +29,30 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    # implement pundit here
   end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+    # implement pundit here ?
+    if current_user == @product.user
+      respond_to do |format|
+        if @product.update(product_params)
+          format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+          format.json { render :show, status: :ok, location: @product }
+        else
+          format.html { render :edit }
+          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
   def destroy
-    if current_user = product.user 
+    # implement pundit here ?
+    if current_user == @product.user 
       @product.destroy
       respond_to do |format|
         format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to products_url, notice: "You can't delete a product you dont own" }
         format.json { head :no_content }
       end
     end

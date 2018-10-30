@@ -2,3 +2,6 @@
 <p><%= number_to_currency(@product.price / 100.0) %></p>
 <p><%= number_to_currency(@product.shipping_price / 100.0) %></p>
 <p><%= @product.description %></p>
+<% if current_user == @product.user %>
+<%= link_to 'Edit', edit_product_path %>
+<% end %>
