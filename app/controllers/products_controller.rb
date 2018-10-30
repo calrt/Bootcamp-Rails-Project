@@ -31,6 +31,31 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def update
+    respond_to do |format|
+      if @product.update(product_params)
+        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.json { render :show, status: :ok, location: @product }
+      else
+        format.html { render :edit }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    if current_user = product.user 
+      @product.destroy
+      respond_to do |format|
+        format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to products_url, notice: "You can't delete a product you dont own" }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -41,6 +66,7 @@ class ProductsController < ApplicationController
   def product_params
     result = params.require(:product).permit(:name, :description, :price, :shipping_price, :stock)
     result[:price] = result[:price].to_f * 100
+    result[:shipping_price] = result[:shipping_price].to_f * 100
     result
   end
 

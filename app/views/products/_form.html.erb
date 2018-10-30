@@ -1,4 +1,4 @@
-<%= form_for @product, url: {action: "create"} do |f| %>
+<%= form_with(model: product, local: true) do |f| %>
 
   <p>
   <%= f.label :name %><br>
@@ -6,18 +6,18 @@
   </p>
   <p>
   <%= f.label :price %><br>
-  <%= f.number_field :price %>
+  $ <%= f.text_field :price, value: number_with_precision((product.price||0)/100.0, precision: 2) %>
   </p>
   <p>
   <%= f.label :shipping_price %><br>
-  <%= f.number_field :shipping_price %>
+  $ <%= f.text_field :shipping_price, value: number_with_precision((product.shipping_price||0)/100.0, precision: 2) %>
   </p>
   <p>
   <%= f.label :description %><br>
   <%= f.text_area :description %>
   </p>
   <p>
-  <%= f.submit "Create" %>
+  <%= f.submit "Submit" %>
   </p>
 
 <% end %>
