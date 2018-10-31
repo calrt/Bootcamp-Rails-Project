@@ -1,0 +1,42 @@
+<h1>Checkout</h1>
+
+<p>Order for: <strong>PRODUCT TITLE</strong></p>
+<p> Price: <strong>PRODUCT PRICE</strong></p>
+
+
+<p>Please confirm your shipping details below:</p>
+
+<%= form_with(model: order, local: true) do |f| %>
+  <p>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %>
+  </p>
+  <p>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %>
+  </p>
+  <p>
+  <%= f.label :street %><br>
+  <%= f.text_field :street %>
+  </p>
+  <p>
+  <%= f.label :suburb %><br>
+  <%= f.text_field :suburb %>
+  </p>
+  <p>
+  <%= f.label :postcode %><br>
+  <%= f.text_field :postcode %>
+  </p>
+  <p>
+  <%= f.label :state %><br>
+  <%= f.text_field :state %>
+  </p>
+  <p>
+  <%= f.label :country %><br>
+  <%= f.text_field :country %>
+  </p>
+  <p>
+  <%= f.submit "Stripe Buy" %>
+  </p>
+
+<% end %>
