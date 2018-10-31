@@ -4,4 +4,5 @@
 <p><%= @product.description %></p>
 <% if current_user == @product.user %>
 <%= link_to 'Edit', edit_product_path %>
+<%= link_to 'Buy', order_path %>
 <% end %>

@@ -1,11 +1,3 @@
-<h1>Checkout</h1>
-
-<p>Order for: <strong>PRODUCT TITLE</strong></p>
-<p> Price: <strong>PRODUCT PRICE</strong></p>
-
-
-<p>Please confirm your shipping details below:</p>
-
 <%= form_with(model: order, local: true) do |f| %>
   <p>
   <%= f.label :first_name %><br>
@@ -35,8 +27,21 @@
   <%= f.label :country %><br>
   <%= f.text_field :country %>
   </p>
-  <p>
-  <%= f.submit "Stripe Buy" %>
-  </p>
+<% end %>
 
+<%= form_tag charge_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description=<%=@product.name%>
+          data-amount=<%=@product.price+@product.shipping_price%>
+          data-locale="auto"></script>
 <% end %>

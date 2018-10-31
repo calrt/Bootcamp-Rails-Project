@@ -58,6 +58,7 @@ class ProductsController < ApplicationController
   end
 
   # def order
+  #   @product = Product.find(params[:id])
   # end
 
   private
