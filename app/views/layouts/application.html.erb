@@ -14,9 +14,9 @@
     <%= link_to "Home", root_path %>
     <% if user_signed_in? %>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    Hi, <%= current_user.email %>       
+    Hi, <%= current_user.username %>       
     <% else %>
-    <%= link_to('Login/Signup', new_user_session_path)  %>  
+    <%= link_to('Login/Signup', new_user_session_path)  %>
     <% end %>
 
     <%= yield %>
