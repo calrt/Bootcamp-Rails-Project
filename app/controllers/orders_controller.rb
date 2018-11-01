@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order = Order.new
     @order.product_id = @product.id
+    @amount = @product.price + @product.shipping_price
   end
 
   def show
@@ -12,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
 
-    @amount = (@product.price * 100).to_i
+    @amount = @product.price + @product.shipping_price
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -29,7 +30,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.product_id = @product.id
     if @order.save
-      redirect_to @order
+      redirect_to @order #change this to order confirmation path
     else
       render :new
     end

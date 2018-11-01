@@ -1,11 +1,17 @@
-<%= form_with(model: order, local: true) do |f| %>
+<!-- <p>Product: <%= @product.name %></p>
+
+<p>Price: <%= @product.price %></p>
+
+-->
+
+<%= form_for [@product, @order] do |f| %>
   <p>
   <%= f.label :first_name %><br>
-  <%= f.text_field :first_name %>
+  <%= f.text_field :firstname %>
   </p>
   <p>
   <%= f.label :last_name %><br>
-  <%= f.text_field :last_name %>
+  <%= f.text_field :lastname %>
   </p>
   <p>
   <%= f.label :street %><br>
@@ -27,6 +33,17 @@
   <%= f.label :country %><br>
   <%= f.text_field :country %>
   </p>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @product.name %>"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
+
+<% end %>
+
+<!-- <%= form_with(model: order, local: true) do |f| %>
+  
 <% end %>
 
 <%= form_tag product_orders_path do %>
@@ -45,3 +62,4 @@
           data-amount=<%=@product.price+@product.shipping_price%>
           data-locale="auto"></script>
 <% end %>
+-->
