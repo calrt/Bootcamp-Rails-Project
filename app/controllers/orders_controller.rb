@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
    
     if @order.save
       @order.product.stock -= @order.quantity
+      @product.save
       redirect_to @order #change this to order confirmation path    
     else
       render :new
@@ -46,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user, :product, :price, :shipping_price, :firstname, :lastname, :street, :suburb, :postcode, :state, :country, :quantity, @neworder)
+    params.require(:order).permit(:user, :product, :price, :shipping_price, :firstname, :lastname, :street, :suburb, :postcode, :state, :country, :quantity)
   end
 end
