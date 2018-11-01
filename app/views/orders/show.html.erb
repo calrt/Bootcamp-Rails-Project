@@ -1,0 +1,18 @@
+<h2>Thanks for your order!</h2>
+<p>Your order is currently being processed.</p>
+
+<p>You will receive an order confirmation at <%= @order.user.email %> shortly.</p>
+
+<p>Product: <%= @order.product.name %></p>
+<p>Product Price: $<%= number_with_precision((@order.product_price||0)/100.0, :precision => 2) %></p>
+<p>Shipping Price: $<%= number_with_precision((@order.shipping_price||0)/100.0, :precision => 2) %></p>
+<hr>
+<p>Total Price: $<%= number_with_precision((@total_price||0)/100.0, :precision => 2) %></p>
+
+<h3>Shipping Destination</h3>
+<p>Street: <%= @order.street %></p>
+<p>Suburb: <%= @order.suburb %></p>
+<p>Postcode: <%= @order.postcode %></p>
+<p>State: <%= @order.state %></p>
+<p>Country: <%= @order.country %></p>
+

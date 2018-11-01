@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @total_price = @order.product_price + @order.shipping_price
   end
 
   def create
@@ -28,7 +29,11 @@ class OrdersController < ApplicationController
     )
 
     @order = Order.new(order_params)
-    @order.product_id = @product.id
+    @order.product = @product
+    @order.product_title = @product.name
+    @order.product_price = @product.price
+    @order.shipping_price = @product.shipping_price
+    @order.user = current_user
     if @order.save
       redirect_to @order #change this to order confirmation path
     else
@@ -39,6 +44,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :address)
+    params.require(:order).permit(:user, :product, :price, :shipping_price, :firstname, :lastname, :street, :suburb, :postcode, :state, :country)
   end
 end
