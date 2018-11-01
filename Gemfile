@@ -5,7 +5,8 @@ ruby '2.4.1'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem "aws-sdk-s3"
+# amazon web services
+gem "aws-sdk-s3", require: false
 # enables local .env
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
