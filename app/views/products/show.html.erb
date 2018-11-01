@@ -1,6 +1,7 @@
 <h1><%= @product.name %></h1>
 <p><%= number_to_currency(@product.price / 100.0) %></p>
 <p><%= number_to_currency(@product.shipping_price / 100.0) %></p>
+<p><%= @product.stock %></p>
 <p><%= @product.description %></p>
 <p><%= image_tag @product.image, width: '300' %></p>
 <% if current_user == @product.user %>

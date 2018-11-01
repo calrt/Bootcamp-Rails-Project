@@ -34,8 +34,11 @@ class OrdersController < ApplicationController
     @order.product_price = @product.price
     @order.shipping_price = @product.shipping_price
     @order.user = current_user
+   
     if @order.save
-      redirect_to @order #change this to order confirmation path
+      @order.product.stock -= @order.quantity
+      @product.save
+      redirect_to @order #change this to order confirmation path    
     else
       render :new
     end
@@ -44,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user, :product, :price, :shipping_price, :firstname, :lastname, :street, :suburb, :postcode, :state, :country)
+    params.require(:order).permit(:user, :product, :price, :shipping_price, :firstname, :lastname, :street, :suburb, :postcode, :state, :country, :quantity)
   end
 end

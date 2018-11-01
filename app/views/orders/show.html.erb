@@ -15,4 +15,5 @@
 <p>Postcode: <%= @order.postcode %></p>
 <p>State: <%= @order.state %></p>
 <p>Country: <%= @order.country %></p>
+<p>Quantity: <%= @order.product.stock -= @order.quantity %></p>
 
