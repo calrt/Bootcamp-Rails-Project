@@ -32,6 +32,7 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @product.name %>"
           data-amount="<%= @amount %>"
+          data-currency="AUD"
           data-locale="auto"></script>
 
 <% end %>
