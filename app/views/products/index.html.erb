@@ -1,7 +1,9 @@
 <h1>Products</h1>
 <p><%= link_to "Sell", new_product_path %></p>
 <% @products.each do |product| %>
-<a href="/products/<%= product.id %>"><%= product.name %></a>
-<%= number_to_currency(product.price / 100.0 ) %>
-<hr>
+  <% if product.stock >= 1 %>
+    <a href="/products/<%= product.id %>"><%= product.name %></a>
+    <%= number_to_currency(product.price / 100.0 ) %>
+    <hr>
+  <% end %>
 <% end %>
