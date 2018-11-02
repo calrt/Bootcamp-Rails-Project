@@ -4,7 +4,10 @@
   <% if product.stock >= 1 %>
     <a href="/products/<%= product.id %>">
       <%= product.name %>
-    </a>
+    </a></br>
+    <a href="/products/<%= product.id %>/orders/new">
+      Buy
+    </a></br>
     <% if product.image.attached? %>
       <p><%= image_tag product.image, width: '300' %></p>
     <% else %>
