@@ -16,18 +16,6 @@ class OrdersController < ApplicationController
 
     @amount = @product.price + @product.shipping_price
 
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
-
-    charge = Stripe::Charge.create({
-      customer: customer.id,
-      amount:  @amount,
-      description: 'Rails Stripe customer',
-      currency: 'aud',
-      receipt_email: current_user.email
-    })
 
     @order = Order.new(order_params)
     @order.product = @product
@@ -35,6 +23,21 @@ class OrdersController < ApplicationController
     @order.product_price = @product.price
     @order.shipping_price = @product.shipping_price
     @order.user = current_user
+
+    if @order.valid?
+      customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        source: params[:stripeToken]
+      )
+
+      charge = Stripe::Charge.create({
+        customer: customer.id,
+        amount:  @amount,
+        description: 'Rails Stripe customer',
+        currency: 'aud',
+        receipt_email: current_user.email
+      })
+    end
 
     if @order.save
       @order.product.stock -= 1
