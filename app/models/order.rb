@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  validates :quantity, numericality: { greater_than: 0 }
   validates :product_title, presence: true, length: { in: 1..200 }
   validates :product_price, numericality: { greater_than: 0 }
   validates :firstname, presence: true, length: { in: 1..200 }
