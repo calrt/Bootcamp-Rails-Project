@@ -48,10 +48,11 @@ class ProductsController < ApplicationController
 
   def destroy
     # implement pundit here ?
-    if current_user == @product.user 
-      @product.destroy
+    if current_user == @product.user
+      @product.stock = 0
+      @product.save
       respond_to do |format|
-        format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+        format.html { redirect_to products_url, notice: 'Product was successfully deleted.' }
         format.json { head :no_content }
       end
     end

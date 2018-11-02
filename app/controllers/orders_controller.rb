@@ -34,11 +34,11 @@ class OrdersController < ApplicationController
     @order.product_price = @product.price
     @order.shipping_price = @product.shipping_price
     @order.user = current_user
-   
+
     if @order.save
-      @order.product.stock -= @order.quantity
+      @order.product.stock -= 1
       @product.save
-      redirect_to @order #change this to order confirmation path    
+      redirect_to @order #change this to order confirmation path
     else
       render :new
     end
