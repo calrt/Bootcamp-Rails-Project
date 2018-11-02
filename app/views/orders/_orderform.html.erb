@@ -35,10 +35,7 @@
   <%= f.label :country %><br>
   <%= f.text_field :country %>
   </p>
-  <p>
-  <%= f.label :quantity %><br>
-  <%= f.text_field :quantity %>
-  </p>
+  
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -46,6 +43,6 @@
           data-email="<%= current_user.email %>"
           data-amount="<%= @amount %>"
           data-currency="AUD"
-          data-locale="auto"></script> 
+          data-locale="auto"></script>
 
 <% end %>
