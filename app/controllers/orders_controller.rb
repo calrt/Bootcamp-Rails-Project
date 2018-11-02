@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
       redirect_to @order #change this to order confirmation path
     else
       render :new
+      @order.errors
     end
   end
 

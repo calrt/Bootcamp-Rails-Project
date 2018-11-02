@@ -1,5 +1,11 @@
 <%= form_with(model: product, local: true) do |f| %>
-
+  <p>
+    <% if @product.errors.any? %>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </p>
   <p>
   <%= f.label :name %><br>
   <%= f.text_field :name %>
