@@ -1,5 +1,13 @@
 <%= form_for [@product, @order] do |f| %>
   <p>
+    <% if @order.errors.any? %>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
   <%= f.label :first_name %><br>
   <%= f.text_field :firstname %>
   </p>
@@ -37,6 +45,6 @@
           data-description="<%= @product.name %>"
           data-amount="<%= @amount %>"
           data-currency="AUD"
-          data-locale="auto"></script>
+          data-locale="auto"></script> 
 
 <% end %>
