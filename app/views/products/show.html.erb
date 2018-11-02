@@ -9,6 +9,8 @@
   <p>(No Product Image Available)</p>
 <% end %>
 <% if current_user == @product.user %>
-<%= link_to 'Edit', edit_product_path %>
-<%= link_to 'Buy', checkout_path %>
+<button><%= link_to 'Edit', edit_product_path %></button>
+<% end %>
+<% if current_user != @product.user %>
+<button><%= link_to 'Buy', checkout_path %></button>
 <% end %>
