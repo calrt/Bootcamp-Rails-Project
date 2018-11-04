@@ -13,16 +13,15 @@
 
     <div class="container-fluid">
       <h1>petspace</h1>
-        <p>Hi, <%= current_user.username %></p>
     </div>
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"><%= link_to "Home", root_path %></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  </button> -->
+  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">
         <% if user_signed_in? %>
@@ -32,7 +31,9 @@
         <% end %>
           <span class="sr-only">(current)</span>
       </a>
-      <a class="nav-item nav-link" href="#"><%= link_to "Sell", new_product_path %></a>
+      <a class="nav-item nav-link" href="#">
+        <%= link_to "Sell", new_product_path %>
+     </a>
     </div>
   </div>
 </nav>
