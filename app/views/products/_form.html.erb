@@ -1,3 +1,4 @@
+<!--
 <%= form_with(model: product, local: true) do |f| %>
   <p>
     <% if @product.errors.any? %>
@@ -35,3 +36,22 @@
   </p>
 
 <% end %>
+-->
+<div class="container">
+  <%= simple_form_for @product do |f| %>
+    <p>
+      <% if @product.errors.any? %>
+        <% @product.errors.full_messages.each do |message| %>
+          <% message %>
+        <% end %>
+      <% end %>
+    </p>
+    <%= f.input :name %>
+    <%= f.input :price, value: number_with_precision((product.price||0)/100.0, precision: 2)  %>
+    <%= f.input :shipping_price, value: number_with_precision((product.price||0)/100.0, precision: 2)  %>
+    <%= f.input :description %>
+    <%= f.input :image %>
+    <%= f.input :stock %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
