@@ -10,8 +10,10 @@
 <p>Total Price: $<%= number_with_precision((@total_price||0)/100.0, :precision => 2) %></p>
 
 <h3>Shipping Destination</h3>
-<p>Street: <%= @order.street %></p>
-<p>Suburb: <%= @order.suburb %></p>
-<p>Postcode: <%= @order.postcode %></p>
-<p>State: <%= @order.state %></p>
-<p>Country: <%= @order.country %></p>
+<address>
+  Street: <%= @order.street %><br>
+  Suburb: <%= @order.suburb %><br>
+  Postcode: <%= @order.postcode %><br>
+  State: <%= @order.state %><br>
+  Country: <%= @order.country %><br>
+</address>
