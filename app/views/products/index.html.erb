@@ -1,5 +1,5 @@
-<h1>Products</h1>
-<p><%= link_to "Sell", new_product_path %></p>
+
+<div class="container-fluid"><h3>All Products: </h3></div>
 <% @products.each do |product| %>
   <% if product.stock >= 1 %>
     <a href="/products/<%= product.id %>">
@@ -18,3 +18,8 @@
     <hr>
   <% end %>
 <% end %>
+
+
+
+
+<!-- <p><%= link_to "Sell", new_product_path %></p> -->
