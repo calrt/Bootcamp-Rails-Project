@@ -13,5 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ .container{
+  border-radius:25px;
+  background: #f8f9fa;
+  margin: 0 auto;
+  width:80% /* value of your choice which suits your alignment */
+}
+
+.new-text{
+  margin: 10px;
+  text-align: center; 
+}
 
 @import "bootstrap";
