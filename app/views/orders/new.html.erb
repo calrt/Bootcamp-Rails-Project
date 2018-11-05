@@ -1,9 +1,13 @@
 <h1>Checkout</h1>
 
-<p>Order for: <strong><%= @product.name %> </strong></p>
-<p>Price: <strong>$<%= number_with_precision((@product.price||0)/100.0, precision: 2) %></strong></p>
-<p>Shipping Price: <strong>$<%= number_with_precision((@product.shipping_price||0)/100.0, precision: 2) %></strong></p>
-<p>Total Price: <strong>$<%= number_with_precision((@product.shipping_price+@product.price||0)/100.0, precision: 2) %></strong></p>
-<p>Please confirm your shipping details below:</p>
+<% if current_user == @product.user %>
+  <p>You probably don't want to purchase your own product 😂. Let's get you back to the <%= link_to 'homepage!', products_path %>
+<% else %>
+  <p>Order for: <strong><%= @product.name %> </strong></p>
+  <p>Price: <strong>$<%= number_with_precision((@product.price||0)/100.0, precision: 2) %></strong></p>
+  <p>Shipping Price: <strong>$<%= number_with_precision((@product.shipping_price||0)/100.0, precision: 2) %></strong></p>
+  <p>Total Price: <strong>$<%= number_with_precision((@product.shipping_price+@product.price||0)/100.0, precision: 2) %></strong></p>
+  <p>Please confirm your shipping details below:</p>
 
-<%= render 'orderform', order: @order %>
+  <%= render 'orderform', order: @order %>
+<% end %>

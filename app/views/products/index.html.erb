@@ -9,7 +9,7 @@
       Buy
     </a></br>
     <% if product.image.attached? %>
-      <p><%= image_tag product.image, width: '300' %></p>
+      <p><a href="/products/<%= product.id %>"><%= image_tag product.image, width: '300' %></a></p>
     <% else %>
       <p>(No Product Image Available)</p>
     <% end %>
