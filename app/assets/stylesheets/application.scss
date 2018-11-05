@@ -15,3 +15,16 @@
  */
 
 @import "bootstrap";
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: #f8f9fa;
+  width: 400px;
+  padding: 30px;
+  border: solid #bec2c6 1px;
+  border-radius: 15px;
+}
