@@ -15,6 +15,14 @@
 
 @import "bootstrap";
 
+.container-fluid {
+  margin-top: 110px;
+}
+
+.card-deck {
+  margin-top: 20px;
+}
+
  .container{
   padding:25px;
   border-radius:25px;
@@ -47,6 +55,7 @@
 .navbarformat{
   padding-bottom:20px;
 }
+
 
 .form-container {
   display: flex;
