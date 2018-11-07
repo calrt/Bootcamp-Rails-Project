@@ -11,11 +11,9 @@
 <% end %>
 <% if current_user == @product.user %>
 <p class="new-text"><a class="btn btn-light" <%= link_to 'Edit', edit_product_path %></a></p>
-<!--<type="button" class="btn btn-primary"><%= link_to 'Edit', edit_product_path %></button>-->
 <% end %>
 <% if current_user != @product.user %>
 <p class="new-text"><a class="btn btn-light" <%= link_to 'Buy', checkout_path %></a></p>
-<!--<type="button" class="btn btn-success"><%= link_to 'Buy', checkout_path %></button>-->
+<p class="new-text"><a class="btn btn-light" <%= link_to 'Back', root_path %></a></p>
 <% end %>
 </div>
-
