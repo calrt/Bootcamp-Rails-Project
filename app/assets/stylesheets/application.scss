@@ -20,11 +20,16 @@
   margin-bottom: 20px;
 }
 
+// .card-rows {
+//   grid-auto-rows: minmax(auto, flex);
+// }
 
 .card-columns {
   display: inline-block;
   margin: 20px;
+  // position: relative;
   column-width: 25vw;
+  grid-row: span;
 
   @include media-breakpoint-only(xs){
    column-count: 1;
@@ -90,6 +95,7 @@
 .form-container {
   display: flex;
   justify-content: center;
+  margin-top: 110px;
 }
 
 .login-form {
