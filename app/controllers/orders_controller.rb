@@ -44,6 +44,8 @@ class OrdersController < ApplicationController
     if @order.save
       @order.product.stock -= 1
       @product.save
+      @order.quantity = 1
+      @order.save
       redirect_to @order #change this to order confirmation path
     else
       render :new
@@ -54,7 +56,7 @@ class OrdersController < ApplicationController
   def country_name
     country = self.country
     ISO3166::Country[country]
-   end
+  end
 
   private
 
