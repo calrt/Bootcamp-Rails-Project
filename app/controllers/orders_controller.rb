@@ -51,6 +51,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def country_name
+    country = self.country
+    ISO3166::Country[country]
+   end
+
   private
 
   def order_params

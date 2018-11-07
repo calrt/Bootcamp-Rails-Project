@@ -1,4 +1,48 @@
-<%= form_for [@product, @order] do |f| %>
+<div class="container">
+  <%= simple_form_for [@product, @order] do |f| %>
+    <p>
+      <% if @order.errors.any? %>
+        <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
+    </p>
+
+    <p>
+    <%= f.input :firstname %>
+    </p>
+    <p>
+    <%= f.input :lastname %>
+    </p>
+    <p>
+    <%= f.input :street %>
+    </p>
+    <p>
+    <%= f.input :suburb %>
+    </p>
+    <p>
+    <%= f.input :postcode %>
+    </p>
+    <p>
+    <%= f.input :state %>
+    </p>
+    <p>
+    <%= f.input :country, as: :text %>
+    </p>
+    
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @product.name %>"
+            data-email="<%= current_user.email %>"
+            data-amount="<%= @amount %>"
+            data-currency="AUD"
+            data-locale="auto"></script>
+
+  <% end %>
+</div>
+
+<!--<%= form_for [@product, @order] do |f| %>
   <p>
     <% if @order.errors.any? %>
       <% @order.errors.full_messages.each do |message| %>
@@ -45,4 +89,4 @@
           data-currency="AUD"
           data-locale="auto"></script>
 
-<% end %>
+<% end %>-->
