@@ -1,6 +1,11 @@
-<h1>Update <%= @product.name %></h1>
+<h1 class="new-text">Update <%= @product.name %></h1>
 <%= render 'form', product: @product %>
-<%= link_to 'Back', product_path %>
+<!--<nav class="new-text"><%= link_to 'Back', product_path %>
 <% if current_user == @product.user %>
-<button><%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-<% end %>
+<%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %></nav>-->
+
+<nav class="new-text"><a class="btn btn-light"<%= link_to 'Back', product_path %></a>
+<% if current_user == @product.user %>
+<a class="btn btn-light"<%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+<% end %></nav>

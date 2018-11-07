@@ -12,44 +12,30 @@
 
   <body>
 
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/"><h1>petspace</h1></a>
-        <% if user_signed_in? %>
-          welcome, <%= current_user.username %>
+    <div class="navbarformat">
+      <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <a class="navbar-brand" id="navbarfontsize" href="/"><strong> petspace</strong> </a>
+          <% if user_signed_in? %>
+            welcome, <%= current_user.username %>
           <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" class="navbarfontsize2" href="/">Home <span class="sr-only">(current)</span></a>
             <% if user_signed_in? %>
-              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-              <% else %>
-              <%= link_to('Login/Signup', new_user_session_path)  %>
+              <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to('Logout', destroy_user_session_path, method: :delete) %></a>
+            <% else %>
+              <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to('Login/Signup', new_user_session_path)  %></a>
             <% end %>
-            <span class="sr-only">(current)</span>
-          </a>
-          <a class="nav-item nav-link" href="#"> <%= link_to "Sell", new_product_path %></a>
+            <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to "Sell", new_product_path %></a>
+          </div>
         </div>
-      </div>
-    </nav>
-
-<br>
+      </nav>
+    </div>
 
     <%= yield %>
 
   </body>
 </html>
-
-
-
-
-<!-- <%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-Hi, <%= current_user.username %>
-<% else %>
-<%= link_to('Login/Signup', new_user_session_path)  %>
-<% end %> -->

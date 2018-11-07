@@ -16,6 +16,7 @@
 @import "bootstrap";
 
  .container{
+  padding:25px;
   border-radius:25px;
   background: #f8f9fa;
   margin: 0 auto;
@@ -27,6 +28,13 @@
   text-align: center;
 }
 
+#navbarfontsize{
+  font-size: 250%
+}
+
+.navbarfontsize2{
+  font-size: 100%
+}
 
 .form-container {
   display: flex;
