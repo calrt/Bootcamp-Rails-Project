@@ -13,7 +13,7 @@
  *= require_self
  */
 
-
+@import "bootstrap";
 
  .container{
   border-radius:25px;
@@ -27,7 +27,6 @@
   text-align: center;
 }
 
-@import "bootstrap";
 
 .form-container {
   display: flex;
@@ -40,4 +39,9 @@
   padding: 30px;
   border: solid #bec2c6 1px;
   border-radius: 15px;
+}
+
+.card {
+  border-color: #56B361;
+  border-width: thick;
 }
