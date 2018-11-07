@@ -1,69 +1,20 @@
 
 
-
-
-
-<!-- <% @products.each do |product| %>
-  <% if product.stock >= 1 %>
-    <a href="/products/<%= product.id %>">
-      <h5><%= product.name %></h5>
-    </a></br>
-    <p><%= number_to_currency(product.price / 100.0 ) %></p>
-    <% if product.image.attached? %>
-      <p><a href="/products/<%= product.id %>"><%= image_tag product.image, width: '300' %></a></p>
-    <% else %>
-      <p>(No Product Image Available)</p>
-    <% end %>
-
-      <p><%= product.user.username %></p>
-    <hr>
-  <% end %>
-<% end %> -->
-
-<!-- <% @products.each do |product| %>
-  <div class="d-flex flex-row bd-highlight mb-3">
-    <div class="card" style="width: 18rem;">
-      <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card text-center" style="width: 18rem;">
-            <% if product.stock > 0 %>
-              <div class="card-img-top">
-                <% if product.image.attached? %>
-                  <p><a href="/products/<%= product.id %>"><%= image_tag product.image, width: '250' %></a></p>
-                <% else %>
-                  <p>(No Product Image Available)</p>
-                <% end %>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">
-                  <a href="/products/<%= product.id %>">
-                    <%= product.name %>
-                  </a>
-                </h5>
-                <p class="card-text"><%= number_to_currency(product.price / 100.0 ) %></p>
-                <div class="card-footer bg-transparent border-success text-muted">
-                  <p class="card-text">Seller: <%= product.user.username %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %> -->
-
 <div class="container-fluid">
   <h3>Browse Products </h3>
-    
+
 
   <div class="card-deck">
     <% @products.each do |product| %>
-    <div class="card">
-      <a href="/products/<%= product.id %>"><img class="card-img-top" src="<%= url_for(product.image) %>" alt="Card image cap"></a>
-      <div class="card-body">
-        <h5 class="card-title"><a href="/products/<%= product.id %>"><%= product.name %></a> - <%= number_to_currency(product.price / 100.0 ) %></h5>
-        <p class="card-text"><%= product.description %> </p>
-        <p class="card-text"><small class="text-muted">Seller: <%= product.user.username %></small></p>
-      </div>
+      <% if product.stock > 0 %>
+        <div class="card w-50">
+          <a href="/products/<%= product.id %>"><img class="card-img-top" src="<%= url_for(product.image) %>" alt="Card image cap"></a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="/products/<%= product.id %>"><%= product.name %></a> - <%= number_to_currency(product.price / 100.0 ) %></h5>
+              <p class="card-text"><%= product.description %> </p>
+              <p class="card-text"><small class="text-muted">Seller: <%= product.user.username %></small></p>
+      <% end %>
+        </div>
     </div>
     <% end %>
   </div>
