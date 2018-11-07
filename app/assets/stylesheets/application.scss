@@ -15,8 +15,9 @@
 
 @import "bootstrap";
 
-.container-fluid {
+.container-fluid, .container-checkout, .container-order-confirm {
   margin-top: 110px;
+  margin-bottom: 20px;
 }
 
 .card-deck {
@@ -32,6 +33,11 @@
 }
 
 .new-text{
+  margin-top: 110px;
+  text-align: center;
+}
+
+.button-text {
   margin: 10px;
   text-align: center;
 }
