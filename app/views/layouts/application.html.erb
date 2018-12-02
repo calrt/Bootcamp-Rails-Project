@@ -1,42 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>petspace - for the love of pets</title>
+<!DOCTYPE html>
+<html class="desktop mbr-site-loaded gr__mobirise_com">
+<head>
+  <title>petspace - for the love of pets</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
-  </head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.3.5, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style_1.css">
+  <link rel="stylesheet" href="/style_2.css">
+  <link rel="stylesheet" href="/mbr-additional.css" type="text/css">
+  
+  
+</head>
+<body data-gr-c-s-loaded="true">
 
-  <body>
 
-    <div class="navbarformat">
-      <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-custom-color">
-        <a class="navbar-brand" id="navbarfontsize" href="/"><strong> petspace</strong> </a>
-          <% if user_signed_in? %>
-            welcome, <%= current_user.username %>
-          <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+<section class="menu cid-qyXbTBAY8L" once="menu" id="menu3-8p" data-rv-view="3302">
+
+    
+    
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="navbar-brand">
+            
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="/">
+                    PetSpace
+                    <% if user_signed_in? %>
+                <br>
+                <span class="text-white display-4">Welcome, <%= current_user.username %></span>
+              <% end %>
+                </a></span>
+
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" class="navbarfontsize2" href="/">|   Home  <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to "|" " " "Selling", new_product_path %></a>
-            <% if user_signed_in? %>
-              <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to( '|' ' ' 'Logout', destroy_user_session_path, method: :delete) %></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+              
+              <li class="nav-item">
+                    <a class="nav-link link text-white display-4" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <%= link_to("Sell", new_product_path, {class: "nav-link link text-white display-4"} )%>
+                </li>
+                </ul>
+            
+            <div class="navbar-buttons mbr-section-btn">
+              <% if user_signed_in? %>
+              <a class="btn btn-sm btn-white-outline display-4" <%= link_to(' ' 'Logout', destroy_user_session_path, method: :delete) %></a>
             <% else %>
-              <a class="nav-item nav-link" class="navbarfontsize2" <%= link_to( '|' ' ' 'Login/Signup', new_user_session_path)  %></a>
+              <a class="btn btn-sm btn-white-outline display-4" <%= link_to(' ' 'Login/Signup', new_user_session_path)  %></a>
             <% end %>
-          </div>
-      </nav>
-    </div>
+            
+            </div>
+      </div>
+    </nav>
+</section>
+  
+
 
 
 
     <%= yield %>
 
-  </body>
-</html>
+
+
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
+  
+</body></html>
